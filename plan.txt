@@ -1,0 +1,25 @@
+PAGES I WANT:
+
+Home
+-picture
+-name
+
+About
+-little passage about myself
+    - double major at college of the holy cross
+-skills
+    - Java, Python, JavaScript, C++, HTML, CSS, React, MATLAB
+- coursework
+    - Artificial Intelligence
+    - Computer Networking
+    - Databases
+    - Numerical Analysis
+    - Probability Theory
+    - Mathematical Modeling
+- TAing
+    - Techniques of Programming (Java)
+    - Data Structures (C++)
+
+Contact
+-socials
+-github link etc...
