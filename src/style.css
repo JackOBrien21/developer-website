@@ -39,17 +39,22 @@
     --fixed-width: 620px;
   }
 
-* {
+*,
+::after,
+::before {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
+}
+
+body {
+    line-height: 1.5;
+    font-size: .875rem;
 }
 
 ul {
     list-style: none;
-}
-
-body {
-    height: 100%;
 }
 
 html {
@@ -57,9 +62,6 @@ html {
     height: 100%;
 }
 
-#root {
-    height: 100%;
-}
 
 /* Navbar Component */
 nav {
@@ -67,7 +69,7 @@ nav {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, .2);
 
 }
-.navbar--component {
+.hide--navbar--component {
     height: 85px;
     width: 90%;
     background-color: white;
@@ -79,6 +81,22 @@ nav {
     max-width: 1170px;
     margin: 0 auto;
     padding: 1rem;
+    transition: var(--transition);
+}
+
+.show--navbar--component {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 1rem;
+    transition: var(--transition);
+    background-color: white;
+    font-weight: bold;
+    transition: var(--transition);
+
 }
 
 .navbar--page {
@@ -106,6 +124,8 @@ nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    transition: var(--transition);
+
 }
 
 .navbar--toggle {
@@ -120,6 +140,7 @@ nav {
 .navbar--toggle:hover {
     color: var(--clr-primary-1);
     transform: rotate(90deg);
+
 }
 
 .navbar--links--list--container {
@@ -128,10 +149,27 @@ nav {
     transition: var(--transition);
 }
 
-.hover-underline-animation {
-    text-decoration: none;
+.navbar--links--list {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;  
+    transition: var(--transition);
+
 }
 
+.hover-underline-animation {
+    text-decoration: none;
+    letter-spacing: var(--spacing);
+    display: block;
+    transition: var(--transition);
+
+}
+@media screen and (max-width: 800px) {
+    .hide--navbar--component .navbar--list--item {
+        display: none;
+    }
+}
 @media screen and (min-width: 800px) {
 .hover-underline-animation {
     display: inline;
@@ -159,14 +197,22 @@ nav {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-.navbar--component {
+.hide--navbar--component {
+    height: 85px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
     max-width: 1170px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 1rem;
+    transition: var(--transition);
 }
+
+
 .navbar--header {
     align-items: center;
     justify-content: space-between;
@@ -177,17 +223,20 @@ nav {
 }
 
 .navbar--links--list {
-    padding: 1rem;
     display: flex;
     align-items: center;
     flex-direction: row;
     margin-right: 40px;
     justify-content: space-around;
     list-style: none;
+    transition: var(--transition);
+
 }
 .navbar--links--list--container {
     padding: 1rem;
     height: auto !important;
+    transition: var(--transition);
+
 }
 }
 

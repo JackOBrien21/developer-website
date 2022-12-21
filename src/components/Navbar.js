@@ -1,10 +1,13 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 import { FaBars } from "react-icons/fa"
+import { useGlobalContext } from '../context'
+
 
 export default function Navbar() {
+    const {showLinks, setShowLinks} = useGlobalContext()
 
-    const [showLinks, setShowLinks] = React.useState(false)
+    const [windowWidth, setWindowWidth] = React.useState(window.innerWidth)
     const linksContainerRef = React.useRef(null)
     const linksRef = React.useRef(null)
 
@@ -12,6 +15,16 @@ export default function Navbar() {
         console.log(showLinks)
         setShowLinks(!showLinks)
     }
+
+    React.useEffect( () => {
+        function watchWidth() {
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener("resize", watchWidth)
+        return function() {
+            window.removeEventListener("resize", watchWidth)
+        }
+    }, []);
 
     React.useEffect( () => {
         const linksHeight = linksRef.current.getBoundingClientRect().height
@@ -24,9 +37,12 @@ export default function Navbar() {
 
     }, [showLinks])
 
+
+    let showOrHideNav = (showLinks) ? "show--navbar--component" : "hide--navbar--component"
+
     return (
         <nav>
-            <div className="navbar--component">
+            <div className={showOrHideNav}>
                 <div className="navbar--header">
                     <div className="homepage--button">
                         <Link to="/" className="my--name">InsertNameHere</Link>
