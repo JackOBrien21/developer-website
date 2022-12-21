@@ -1,27 +1,61 @@
 import React from "react"
 import { Link } from 'react-router-dom'
+import { FaBars } from "react-icons/fa"
 
 export default function Navbar() {
+
+    const [showLinks, setShowLinks] = React.useState(false)
+    const linksContainerRef = React.useRef(null)
+    const linksRef = React.useRef(null)
+
+    const toggleLinks = () => {
+        setShowLinks(!showLinks)
+    }
+
+    React.useEffect( () => {
+        const linksHeight = linksRef.current.getBoundingClientRect().linksHeight
+        if (showLinks) {
+            linksContainerRef.current.style.height = `${linksHeight}px`
+        } else {
+            linksContainerRef.current.style.height = "0px"
+        }
+
+    }, [showLinks])
+
     return (
-        <div className="navbar--component">
-            <Link to="/" className="my--name">InsertNameHere</Link>
-            <ul className="navbar--links--list">
-                <li>
-                    <Link to="/" className="underline">
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/about" className="underline">
-                        About
-                    </Link>
-                </li>
-                <li>
-                    <Link to ="/contact" className="underline">
-                        Contact
-                    </Link>
-                </li>
-            </ul>
-        </div>
+        <nav>
+            <div className="navbar--component">
+                <div className="navbar--header">
+                    <div className="homepage--button">
+                        <Link to="/" className="my--name">InsertNameHere</Link>
+                    </div>
+                    <button className="navbar--toggle" onClick={toggleLinks}>
+                        <FaBars />
+                    </button>
+                </div>
+                
+                <div className="navbar--links--list--container" ref={linksContainerRef}>
+                    <ul className="navbar--links--list" ref={linksRef}>
+                        <li>
+                            <Link className="hover-underline-animation" to="/">
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover-underline-animation" to="/about">
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover-underline-animation" to ="/contact">
+                                Contact
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+        
     )
 }
