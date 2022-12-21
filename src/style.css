@@ -104,14 +104,11 @@ nav {
 
 .navbar--header {
     display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
 .navbar--toggle {
-    margin-right: 40px;
-    position: relative;
-    right: 10px;
-    display: flex;
     font-size: 1.5rem;
     color: var(--clr-primary-5);
     background: transparent;
@@ -178,13 +175,19 @@ nav {
 }
 
 .navbar--links--list {
+    padding: 1rem;
+
     display: flex;
+    align-items: center;
     flex-direction: row;
     margin-right: 40px;
     justify-content: space-around;
     list-style: none;
 }
 .navbar--links--list--container {
+    padding: 1rem;
+
+    margin: 0 auto;
     height: auto !important;
     overflow: hidden;
     transition: var(--transition);
