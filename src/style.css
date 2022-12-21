@@ -122,11 +122,14 @@ nav {
     transform: rotate(90deg);
 }
 
-
 .navbar--links--list--container {
     height: 0;
     overflow: hidden;
     transition: var(--transition);
+}
+
+.hover-underline-animation {
+    text-decoration: none;
 }
 
 @media screen and (min-width: 800px) {
