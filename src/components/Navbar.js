@@ -9,11 +9,13 @@ export default function Navbar() {
     const linksRef = React.useRef(null)
 
     const toggleLinks = () => {
+        console.log(showLinks)
         setShowLinks(!showLinks)
     }
 
     React.useEffect( () => {
-        const linksHeight = linksRef.current.getBoundingClientRect().linksHeight
+        const linksHeight = linksRef.current.getBoundingClientRect().height
+        console.log(linksHeight)
         if (showLinks) {
             linksContainerRef.current.style.height = `${linksHeight}px`
         } else {
@@ -30,23 +32,23 @@ export default function Navbar() {
                         <Link to="/" className="my--name">InsertNameHere</Link>
                     </div>
                     <button className="navbar--toggle" onClick={toggleLinks}>
-                        <FaBars />
+                        <FaBars className="navbar--toggle"/>
                     </button>
                 </div>
                 
                 <div className="navbar--links--list--container" ref={linksContainerRef}>
                     <ul className="navbar--links--list" ref={linksRef}>
-                        <li>
+                        <li className="navbar--list--item">
                             <Link className="hover-underline-animation" to="/">
                                 Home
                             </Link>
                         </li>
-                        <li>
+                        <li className="navbar--list--item">
                             <Link className="hover-underline-animation" to="/about">
                                 About
                             </Link>
                         </li>
-                        <li>
+                        <li className="navbar--list--item">
                             <Link className="hover-underline-animation" to ="/contact">
                                 Contact
                             </Link>
