@@ -48,10 +48,24 @@
     font-family: 'Oswald', sans-serif;
 }
 
-@media screen and (max-width: 1800px) {
+body {
+    line-height: 1.75;
+    font-size: 1.25rem;
+    height: 100%;
+}
+
+@media screen and (max-width: 2100px) {
     body {
         line-height: 1.75;
-        font-size: 1.125rem;
+        font-size: 1.5rem;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    body {
+        line-height: 1.675;
+        font-size: 1.3rem;
         height: 100%;
     }
 }
@@ -59,7 +73,7 @@
 @media screen and (max-width: 1200px) {
     body {
         line-height: 1.5;
-        font-size: 1rem;
+        font-size: 1.125rem;
         height: 100%;
     }
 }
@@ -479,7 +493,7 @@ nav {
     display: inline-block;
 }
 .tool--icon {
-    font-size: 26px;
+    font-size: 30px;
 }
 
 .about--coursework {
@@ -493,6 +507,18 @@ nav {
 
 .about--college:hover {
     opacity: .7;
+}
+
+@media screen and (max-width: 2100px) {
+    .tool--icon {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .tool--icon {
+        font-size: 26px;
+    }
 }
 
 @media screen and (max-width: 900px) {
