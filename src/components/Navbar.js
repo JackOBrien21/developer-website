@@ -5,26 +5,9 @@ import { useGlobalContext } from '../context'
 
 
 export default function Navbar() {
-    const {showLinks, setShowLinks} = useGlobalContext()
-
-    const [windowWidth, setWindowWidth] = React.useState(window.innerWidth)
+    const {showLinks, setShowLinks, toggleLinks, windowWidth} = useGlobalContext()
     const linksContainerRef = React.useRef(null)
     const linksRef = React.useRef(null)
-
-    const toggleLinks = () => {
-        console.log(showLinks)
-        setShowLinks(!showLinks)
-    }
-
-    React.useEffect( () => {
-        function watchWidth() {
-            setWindowWidth(window.innerWidth)
-        }
-        window.addEventListener("resize", watchWidth)
-        return function() {
-            window.removeEventListener("resize", watchWidth)
-        }
-    }, []);
 
     React.useEffect( () => {
         const linksHeight = linksRef.current.getBoundingClientRect().height
@@ -37,15 +20,15 @@ export default function Navbar() {
 
     }, [showLinks])
 
-
     let showOrHideNav = (showLinks) ? "show--navbar--component" : "hide--navbar--component"
+    showOrHideNav = (windowWidth <= 800) ? "show--navbar--component" : "hide--navbar--component"
 
     return (
         <nav>
             <div className={showOrHideNav}>
                 <div className="navbar--header">
                     <div className="homepage--button">
-                        <Link to="/" className="my--name">InsertNameHere</Link>
+                        <Link to="/" className="my--name">Jack O'Brien</Link>
                     </div>
                     <button className="navbar--toggle" onClick={toggleLinks}>
                         <FaBars className="navbar--toggle"/>
@@ -55,25 +38,23 @@ export default function Navbar() {
                 <div className="navbar--links--list--container" ref={linksContainerRef}>
                     <ul className="navbar--links--list" ref={linksRef}>
                         <li className="navbar--list--item">
-                            <Link className="hover-underline-animation" to="/">
+                            <Link className="hover-underline-animation" to="/" onClick={toggleLinks}>
                                 Home
                             </Link>
                         </li>
                         <li className="navbar--list--item">
-                            <Link className="hover-underline-animation" to="/about">
+                            <Link className="hover-underline-animation" to="/about" onClick={toggleLinks}>
                                 About
                             </Link>
                         </li>
                         <li className="navbar--list--item">
-                            <Link className="hover-underline-animation" to ="/contact">
+                            <Link className="hover-underline-animation" to ="/contact" onClick={toggleLinks}>
                                 Contact
                             </Link>
                         </li>
                     </ul>
                 </div>
-                
             </div>
         </nav>
-        
     )
 }

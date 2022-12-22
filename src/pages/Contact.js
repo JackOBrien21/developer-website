@@ -1,13 +1,42 @@
 import React from "react"
-import {FaEnvelope} from "react-icons/fa"
+import {FaGithub, FaLinkedinIn, FaDiscord} from "react-icons/fa"
 
 export default function Contact() {
     return (
         <div className="contact--container">
-            Feel free to reach out to me:
-            <a className="email--anchor" href="mailto:jaobri23@g.holycross.edu">
-                <FaEnvelope className="email--link"/>
-            </a>
+            <div className="contact--subheader">
+                <h1 className="contact--header">
+                    Contact me
+                </h1>
+                <div>
+                    Email: <a href="mailto:jaobri23@g.holycross.edu" className="email--link">jaobri23@g.holycross.edu</a>
+                </div>
+            </div>
+            
+            <div className="social--link--icons">
+                <h2 className="social--links--header">Social Links</h2>
+                <div className="list--social--icons">
+                    <div className="icon--title">
+                        <p className="social--title">Github</p>
+                        <a href="https://github.com/JackOBrien21" className="social--icon">
+                            <FaGithub className="icon"/>
+                        </a>
+                    </div>
+                    <div className="icon--title">
+                        <p className="social--title">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/jack-o-brien-2a6653220/" className="social--icon">
+                            <FaLinkedinIn className="icon"/>
+                        </a>
+                    </div>
+                    <div className="icon--title">
+                        <p className="social--title">Discord Server</p>
+                        <a href="https://discord.gg/bhnZx7fxmm" className="social--icon">
+                            <FaDiscord className="icon"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     )
 }
