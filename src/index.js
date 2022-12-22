@@ -1,9 +1,13 @@
-import React from "react"
-import * as ReactDOMClient from "react-dom/client"
-import "./style.css"
-import App from "./App"
-
-const container = document.getElementById("root")
-const root = ReactDOMClient.createRoot(container)
-
-root.render(<App />)
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './style.css'
+import App from './App'
+import { AppProvider } from './context'
+ReactDOM.render(
+  <React.StrictMode>
+    <AppProvider>
+    <App />
+    </AppProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+)

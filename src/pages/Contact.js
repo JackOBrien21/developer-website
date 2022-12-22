@@ -1,5 +1,5 @@
 import React from "react"
-import {FaGithub, FaLinkedinIn, FaDiscord} from "react-icons/fa"
+import {FaGithub, FaLinkedinIn, FaDiscord, FaRegFileAlt} from "react-icons/fa"
 
 export default function Contact() {
     return (
@@ -20,6 +20,12 @@ export default function Contact() {
                         <p className="social--title">Github</p>
                         <a href="https://github.com/JackOBrien21" className="social--icon">
                             <FaGithub className="icon"/>
+                        </a>
+                    </div>
+                    <div className="icon--title">
+                        <p className="social--title">CV</p>
+                        <a href="https://resume.io/r/7kvvsAEIR" className="social--icon">
+                            <FaRegFileAlt className="icon"/>
                         </a>
                     </div>
                     <div className="icon--title">
