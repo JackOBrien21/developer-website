@@ -6,13 +6,12 @@ export default function Contact() {
         <div className="contact--container">
             <div className="contact--subheader">
                 <h1 className="contact--header">
-                    Contact me
+                    Say Hello!
                 </h1>
                 <div>
                     Email: <a href="mailto:jaobri23@g.holycross.edu" className="email--link">jaobri23@g.holycross.edu</a>
                 </div>
             </div>
-            
             <div className="social--link--icons">
                 <h2 className="social--links--header">Social Links</h2>
                 <div className="list--social--icons">
